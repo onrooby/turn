@@ -65,6 +65,9 @@ module Turn
     # Use natural language case names.
     attr_accessor :natural
 
+    # Fail suite upon first test failure
+    attr_accessor :fail_fast
+
     #
     def verbose?
       @verbose
@@ -106,6 +109,7 @@ module Turn
       @pattern   ||= /.*/
       @natural   ||= false
       @verbose   ||= false
+      @fail_fast ||= false
       @format    ||= environment_format
       @mode      ||= environment_mode
       @trace     ||= environment_trace

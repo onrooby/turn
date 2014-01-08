@@ -106,6 +106,7 @@ Options are following:
     trace           Number of backtrace lines to display. Default: set from ENV or nil (all)
     natural         Use natural language case names.  Default: false
     ansi            Force colorized output (requires 'ansi' gem). Default: set from ENV or nil (auto)
+    fail_fast       Break test suite execution upon first test failure
 
 To set option just call the desired method:
 

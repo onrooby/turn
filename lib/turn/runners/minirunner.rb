@@ -81,7 +81,9 @@ module Turn
       header = "#{type}_suite_header"
       puts send(header, suite) if respond_to? header
 
-      assertions = @turn_case.tests.map do |test|
+      assertions = []
+
+      @turn_case.tests.each do |test|
         @turn_test = test
         turn_reporter.start_test(@turn_test)
 
@@ -96,7 +98,9 @@ module Turn
 
         turn_reporter.finish_test(@turn_test)
 
-        inst._assertions
+        assertions << inst._assertions
+
+        break if @turn_config.fail_fast && result != '.'
       end
 
       @turn_case.count_assertions = assertions.inject(0) { |sum, n| sum + n }
