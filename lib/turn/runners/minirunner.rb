@@ -100,7 +100,7 @@ module Turn
 
         assertions << inst._assertions
 
-        break if @turn_config.fail_fast && result != '.'
+        break if @turn_config.fail_fast && result != '.' && result != 'S'
       end
 
       @turn_case.count_assertions = assertions.inject(0) { |sum, n| sum + n }
